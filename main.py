@@ -14,7 +14,23 @@ app = Flask(__name__)
 
 # Set up your Groq API key
 groq_api_key = "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"
-llm = ChatGroq(groq_api_key=groq_api_key, model_name="llama-3.1-8b-instant")
+
+try:
+    llm = ChatGroq(
+        groq_api_key=groq_api_key,
+        model_name="llama2-70b-4096",
+        temperature=0.7,
+        max_tokens=4096,
+        top_p=1,
+        client_kwargs={"api_key": groq_api_key}  # Pass API key directly in client_kwargs
+    )
+except Exception as e:
+    print(f"Error initializing Groq: {e}")
+    # Fallback configuration if needed
+    llm = ChatGroq(
+        groq_api_key=groq_api_key,
+        model_name="llama2-70b-4096",
+    )
 
 # User data dictionary to store names
 user_data = {}
