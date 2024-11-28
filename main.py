@@ -2,35 +2,39 @@ from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import FAISS
-from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
+from langchain.llms.base import LLM
 from langdetect import detect
+import requests
 import os
 
 # Initialize Flask app
 app = Flask(__name__)
 
-# Set up your Groq API key
-groq_api_key = "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"
+# Custom HuggingFace LLM class
+class HuggingFaceLLM(LLM):
+    def __init__(self, api_key):
+        super().__init__()
+        self.api_key = api_key
+        self.api_url = "https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-1B"
+        self.headers = {"Authorization": f"Bearer {api_key}"}
 
-try:
-    llm = ChatGroq(
-        groq_api_key=groq_api_key,
-        model_name="llama2-70b-4096",
-        temperature=0.7,
-        max_tokens=4096,
-        top_p=1,
-        client_kwargs={"api_key": groq_api_key}  # Pass API key directly in client_kwargs
-    )
-except Exception as e:
-    print(f"Error initializing Groq: {e}")
-    # Fallback configuration if needed
-    llm = ChatGroq(
-        groq_api_key=groq_api_key,
-        model_name="llama2-70b-4096",
-    )
+    def _call(self, prompt: str) -> str:
+        response = requests.post(
+            self.api_url,
+            headers=self.headers,
+            json={"inputs": prompt}
+        )
+        return response.json()[0]['generated_text']
+
+    @property
+    def _llm_type(self) -> str:
+        return "huggingface"
+
+# Initialize LLM
+llm = HuggingFaceLLM(api_key="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")
 
 # User data dictionary to store names
 user_data = {}
@@ -118,16 +122,9 @@ class ChatbotAgent:
         """
         Uses LLM to extract the name from user input.
         """
-        # Craft a clear and concise instruction for the LLM
         extraction_prompt = f"Extract the name from this sentence: '{user_input}'. If there is no name, respond with 'None'. Keep in mind, just provide the name and nothing else."
-
-        # Pass the prompt directly to the LLM
-        response = llm.invoke(extraction_prompt)
-
-        # Access the 'content' attribute of the response
-        extracted_name = response.content.strip()  # Get the text and remove extra whitespace
-
-        # Return None if the response explicitly says 'None'
+        response = self._call(extraction_prompt)
+        extracted_name = response.strip()
         return None if extracted_name.lower() == "none" else extracted_name
 
     def detect_language(self, text):
@@ -154,8 +151,7 @@ def webhook():
         user_data[phone_number] = {"name": None}
 
     if user_data[phone_number]["name"] is None:
-        if incoming_msg.lower() in ["hi", "hey", "hello"]:  # Initial greeting
-            # Ask for the user's name in the detected language
+        if incoming_msg.lower() in ["hi", "hey", "hello"]:
             name_request = {
                 "en": "Hi there! Before we continue, could you please tell me your name?",
                 "zh": "您好！在继续之前，您能告诉我您的名字吗？",
@@ -166,7 +162,6 @@ def webhook():
             twilio_response.message(name_request.get(detected_language, name_request["en"]))
             return str(twilio_response)
         else:
-            # Use LLM to extract the user's name
             extracted_name = chatbot_agent.extract_name_with_llm(incoming_msg)
             if extracted_name:
                 user_data[phone_number]["name"] = extracted_name
@@ -180,7 +175,6 @@ def webhook():
                 twilio_response.message(thank_you_message.get(detected_language, thank_you_message["en"]))
                 return str(twilio_response)
             else:
-                # If no name could be extracted, ask again
                 twilio_response = MessagingResponse()
                 name_request = {
                     "en": "I couldn't quite catch your name. Could you please provide it again?",
