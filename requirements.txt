@@ -1,9 +1,11 @@
-Flask==3.0.3
+Flask==3.1.0
 twilio==9.3.7
-langchain-community==0.3.1
-langchain-groq==0.2.0
+langchain-community==0.3.4
+langchain-groq==0.2.1
+groq==0.13.0
 langchain-huggingface==0.1.2
-langchain==0.3.1
 langdetect==1.0.9
-requests==2.32.3
-pypdf
+sentence-transformers==3.2.1
+faiss-cpu==1.9.0
+pydantic==2.9.2
+pypdf==4.3.1
