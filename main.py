@@ -2,40 +2,20 @@ from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import FAISS
+from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
-from langchain.llms.base import LLM
 from langdetect import detect
-import requests
 import os
 
 # Initialize Flask app
 app = Flask(__name__)
 
 # Set up your Groq API key
-# Custom HuggingFace LLM class
-class HuggingFaceLLM(LLM):
-    def _init_(self, api_key):
-        super()._init_()
-        self.api_key = api_key
-        self.api_url = "https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-1B"
-        self.headers = {"Authorization": f"Bearer {api_key}"}
+groq_api_key = "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"
+llm = ChatGroq(groq_api_key=groq_api_key, model_name="llama-3.1-8b-instant")
 
-    def _call(self, prompt: str) -> str:
-        response = requests.post(
-            self.api_url,
-            headers=self.headers,
-            json={"inputs": prompt}
-        )
-        return response.json()[0]['generated_text']
-
-    @property
-    def _llm_type(self) -> str:
-        return "huggingface"
-
-# Initialize LLM
-llm = HuggingFaceLLM(api_key="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")
 # User data dictionary to store names
 user_data = {}
 
