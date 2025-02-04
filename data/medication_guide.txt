@@ -1,0 +1,91 @@
+Common Stroke Medications Guide
+________________________________________
+1. Antiplatelet Agents (Prevent Blood Clots)
+•	Aspirin
+o	Dosage: 75–100 mg
+o	Frequency: Once daily
+o	Purpose: Prevents stroke caused by blood clots by thinning the blood and stopping platelets from clumping together.
+•	Clopidogrel
+o	Dosage: 75 mg
+o	Frequency: Once daily
+o	Purpose: Alternative to aspirin or can be combined with aspirin for high-risk stroke cases for up to 90 days.
+o	✅ CYP2C19 Test:
+	A genetic test determines if clopidogrel will work effectively for you. Some people cannot process it properly due to their genetics, making it less effective in preventing strokes.
+	Ask your doctor if this test is necessary.
+•	Ticagrelor
+o	Dosage: 90 mg
+o	Frequency: Twice daily
+o	Purpose: Another alternative to clopidogrel or combined with aspirin for high-risk cases for up to 90 days.
+o	✅ CYP2C19 Test:
+	Similar to clopidogrel, a CYP2C19 test may be necessary to determine how your body responds to these medications.
+________________________________________
+2. Anticoagulants (Prevent Blood Clots)
+•	Warfarin
+o	Dosage: 2–10 mg (adjusted based on INR levels)
+o	Frequency: Once daily
+o	Purpose: Prevents strokes by thinning the blood and reducing clot formation, especially for conditions like irregular heartbeat (atrial fibrillation).
+o	✅ INR Test (for Warfarin Users):
+	INR (International Normalized Ratio) measures how long it takes your blood to clot.
+	Target INR: 2 to 3 for stroke prevention.
+	INR levels should stay in range at least 70% of the time for effective stroke prevention.
+	Regular blood tests are needed to adjust your dose safely.
+•	Dabigatran
+o	Dosage: 150 mg
+o	Frequency: Twice daily
+o	Purpose: Prevents strokes related to atrial fibrillation (irregular heartbeat).
+o	✅ Note: No regular blood tests required compared to warfarin.
+•	Rivaroxaban
+o	Dosage: 20 mg
+o	Frequency: Once daily (preferably with food)
+o	Purpose: Alternative to warfarin for stroke prevention, particularly in atrial fibrillation cases.
+•	Apixaban
+o	Dosage: 5 mg twice daily
+o	Purpose: Prevents strokes in atrial fibrillation patients by thinning the blood.
+o	✅ Kidney & Age Considerations:
+	A lower dose of 2.5 mg twice daily may be required if two of these conditions are present:
+	Creatinine >133 mmol/L (reduced kidney function)
+	Age >80 years
+	Body weight <65 kg
+________________________________________
+3. Blood Pressure Medications (Control Hypertension)
+ACE Inhibitors (Reduce blood vessel narrowing):
+•	Enalapril: 5–20 mg once or twice daily
+•	Ramipril: 2.5–10 mg once daily
+•	Perindopril: 4–8 mg once daily
+Angiotensin Receptor Blockers (ARBs) (Prevent blood vessel tightening):
+•	Telmisartan: 40–80 mg once daily
+•	Losartan: 50–100 mg once daily
+•	Irbesartan: 150–300 mg once daily
+•	Valsartan: 80–160 mg once daily
+Calcium Channel Blocker (Relaxes blood vessels):
+•	Amlodipine: 5–10 mg once daily
+Beta-Blockers (Slows heart rate and reduces blood pressure):
+•	Metoprolol: 50–100 mg twice daily
+•	Bisoprolol: 2.5–10 mg once daily
+•	Nebivolol: 2.5–10 mg once daily
+Diuretics (Help remove excess fluid and lower blood pressure):
+•	Spironolactone: 12.5–50 mg once daily
+•	Hydrochlorothiazide: 12.5–25 mg once daily
+✅ Kidney & Age Considerations:
+•	Older adults or those with kidney issues may need lower doses for safety. Always consult your doctor for proper dosing adjustments.
+________________________________________
+4. Statins (Cholesterol Management)
+•	Atorvastatin
+o	Dosage: 10–80 mg
+o	Frequency: Once daily
+•	Rosuvastatin
+o	Dosage: 5–20 mg
+o	Frequency: Once daily
+•	Simvastatin
+o	Dosage: 10–40 mg
+o	Frequency: Once daily at night
+✅ Cholesterol Management:
+•	Statins lower LDL cholesterol (bad cholesterol) and triglycerides, reducing stroke risk.
+•	Discuss your LDL cholesterol and triglyceride targets with your doctor.
+•	High-risk patients should aim for an LDL below 1.8 mmol/L for optimal stroke prevention.
+________________________________________
+✅ Key Takeaways
+•	CYP2C19 Test: A genetic test can help determine if clopidogrel will work effectively for you.
+•	INR Test (for Warfarin Users): A blood test to monitor your blood's clotting ability. Staying within the 2-3 range at least 70% of the time is crucial for preventing strokes.
+•	Kidney & Age Considerations: If you are over 80 years old, underweight, or have kidney problems, lower medication doses may be required. Consult your doctor.
+•	Cholesterol Management: Aim for low LDL cholesterol and triglycerides to reduce stroke risk. High-risk patients should keep LDL under 1.8 mmol/L.
